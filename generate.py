@@ -1,21 +1,23 @@
+#!/usr/bin/env python
+
 import os
 
 def generateSketelon():
     path = os.getcwd()
 
     try:
-        os.mkdir(path + 'static')
+        os.mkdir(path + '/static')
         os.mkdir(path + '/static/scripts')
         os.mkdir(path + '/static/css')
         os.mkdir(path + '/static/img')
         os.mkdir(path + '/templates')
-    except FileExistsError:
-        print("The file/dir already exists!")
+    except Exception,e:
+        print(e)
 
     with open(path + '/' + 'README.md', 'w') as readme:
         readme.write('This is a flask project \n')
 
-    with open(path + '/templates/' + 'index.html', 'w') as index:
+    with open(path + '/' + 'templates/' + 'index.html', 'w') as index:
         index.write('''
     <!DOCTYPE html>
     <html>
@@ -47,8 +49,3 @@ def generateSketelon():
 
 if __name__ == '__main__':
     generateSketelon()
-
-
-
-
-
