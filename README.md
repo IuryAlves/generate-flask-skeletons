@@ -14,6 +14,8 @@ run install.sh
 ### Usage
 
 just run generate.py from anywhere.
+
 `sudo generate.py`
+
 The program will create the skeleton for your flask application.
 
