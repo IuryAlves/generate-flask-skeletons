@@ -8,6 +8,8 @@ A simple tool to generate flask web applications skeletons
 
 run install.sh
 
+`cd generate-flask-skeletons`
+
 `sudo sh install.sh`
 
 
