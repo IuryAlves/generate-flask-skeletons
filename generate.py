@@ -123,8 +123,7 @@ if __name__ == '__main__':
 
 
 if __name__ == '__main__':
-  sys.
-  if len(sys.argv) == 2 and sys.argv[1] == 'bootstrap':
+  if len(sys.argv) == 2 and sys.argv[1].lower() == 'bootstrap':
     generateSketelon(usingBootstrap=True)
     retrieveFramework()
   else:
