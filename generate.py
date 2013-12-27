@@ -9,12 +9,13 @@ def retrieveFramework():
   global PATH
 
   try:
-    print("Downloading bootstrap...")
-    urllib.urlretrieve('https://github.com/twbs/bootstrap/releases/download/v3.0.3/bootstrap-3.0.3-dist.zip',
+  	print("Downloading bootstrap...")
+  	urllib.urlretrieve('https://github.com/twbs/bootstrap/releases/download/v3.0.3/bootstrap-3.0.3-dist.zip',
                        PATH + '/static/bootstrap3.zip')
 
-  except Exception:
-    print("Erro ao fazer download do arquivo!")
+  except IOError:
+    print("Error to download de file")
+    print("Check your internet connection")
 
   os.chdir('static')
   os.system('unzip bootstrap3.zip ')
@@ -34,8 +35,9 @@ def generateSketelon(usingBootstrap=False):
     os.mkdir(PATH + '/static/img')
     os.mkdir(PATH + '/static/fonts')
     os.mkdir(PATH + '/templates')
-  except Exception:
+  except OSError:
     print("the file/dir already exists ")
+    print("Replacing some files ...")
 
   with open(PATH + '/' + 'README.md', 'w') as readme:
     readme.write('This is a flask project \n')
@@ -102,7 +104,6 @@ def generateSketelon(usingBootstrap=False):
       </html>
       ''')
 
-
   with open(PATH + '/' + 'routes.py', 'w') as routes:
     routes.write('''
 from flask import app, request, Flask, render_template, request, url_for
@@ -122,6 +123,7 @@ if __name__ == '__main__':
 
 
 if __name__ == '__main__':
+  sys.
   if len(sys.argv) == 2 and sys.argv[1] == 'bootstrap':
     generateSketelon(usingBootstrap=True)
     retrieveFramework()
