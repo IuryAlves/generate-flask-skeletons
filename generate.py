@@ -127,4 +127,4 @@ if __name__ == '__main__':
     generateSketelon(usingBootstrap=True)
     retrieveFramework()
   else:
-    generateSketelon(usingBootstrap=False)
+    generateSketelon()
